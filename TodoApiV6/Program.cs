@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using System;
 using TodoApiV6.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,7 +16,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
 {
-    builder.AllowAnyOrigin()
+    builder
+        .AllowAnyOrigin()
         .AllowAnyMethod()
         .AllowAnyHeader();
 }));
